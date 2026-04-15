@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="https://giabao123123.github.io/trochoi/trochoi.css" />
+    <link
+      rel="stylesheet"
+      href="https://giabao123123.github.io/trochoi/trochoi.css"
+    />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -780,7 +783,6 @@
         stopAllMusic();
       }
       let quiz = [
-        // ===== 1. LỄ HỘI – TÍN NGƯỠNG (8 CÂU) =====
         {
           question: "Lễ hội cầu ngư Nhượng Bạn gắn với tín ngưỡng nào?",
           answers: ["Thờ Thành Hoàng", "Thờ Ngư Ông", "Thờ Mẫu", "Thờ Phật"],
@@ -838,8 +840,6 @@
           answers: ["Tây Nguyên", "Nam Bộ", "Xứ Nghệ", "Tây Bắc"],
           correct: 2,
         },
-
-        // ===== 2. VĂN HÓA – CỘNG ĐỒNG (5 CÂU) =====
         {
           question: "Hà Tĩnh thuộc vùng văn hóa nào của Việt Nam?",
           answers: ["Đông Bắc", "Tây Bắc", "Xứ Nghệ", "Nam Trung Bộ"],
@@ -865,8 +865,6 @@
           answers: ["Phật giáo", "Tin Lành", "Công giáo", "Đạo Hòa Hảo"],
           correct: 2,
         },
-
-        // ===== 3. ĐỊA LÝ – TỰ NHIÊN (5 CÂU) =====
         {
           question: "Hà Tĩnh nằm ở sườn Đông của dãy núi nào?",
           answers: ["Hoàng Liên Sơn", "Trường Sơn", "Tam Đảo", "Hồng Lĩnh"],
@@ -897,8 +895,6 @@
           answers: ["30%", "35%", "40%", "45%"],
           correct: 3,
         },
-
-        // ===== 4. DU LỊCH – ẨM THỰC (6 CÂU) =====
         {
           question: "Biển du lịch nổi tiếng nhất của Hà Tĩnh là?",
           answers: ["Cửa Lò", "Thiên Cầm", "Lăng Cô", "Sầm Sơn"],
@@ -939,8 +935,6 @@
           ],
           correct: 0,
         },
-
-        // ===== 5. KINH TẾ – PHÁT TRIỂN (6 CÂU) =====
         {
           question: "Ngành kinh tế mũi nhọn của Hà Tĩnh hiện nay là gì?",
           answers: [
@@ -988,17 +982,16 @@
           correct: 2,
         },
       ];
-
       let toastTimer = null;
       quiz = quiz.sort(() => Math.random() - 0.5);
       let index = 0;
       let score = 0;
       let correctCount = 0;
-      let totalTime = 10 * 60; // 10 phút
+      let totalTime = 10 * 60;
       let timer;
-      const correctSound = new Audio("./amthanh/dung.mp3"); // đúng → "Yee!"
-      const wrongSound = new Audio("./amthanh/wrong.mp3"); // sai → "Ô ồ!"
-      const finishSound = new Audio("./amthanh/end.mp3"); // 🔊 âm thanh kết thúc
+      const correctSound = new Audio("./amthanh/dung.mp3");
+      const wrongSound = new Audio("./amthanh/wrong.mp3");
+      const finishSound = new Audio("./amthanh/end.mp3");
       function showToast(message, type) {
         const toast = document.getElementById("toast");
         if (toastTimer) {
@@ -1247,11 +1240,9 @@
         const total = quiz.length;
         const correctPercent = Math.round((correctCount / total) * 100);
         const wrongPercent = 100 - correctPercent;
-
         const timeUsed = 10 * 60 - totalTime;
         const minutes = Math.floor(timeUsed / 60);
         const seconds = timeUsed % 60;
-
         let rank, emoji;
         if (score >= total * 10 * 0.9) {
           rank = "Xuất sắc";
@@ -1266,10 +1257,8 @@
           rank = "Cần cố gắng";
           emoji = "💪";
         }
-
         const text = `
 🎮 QUIZ HÀ TĨNH 🎮
-
 🏆 Điểm: ${score}
 ✅ Số câu đúng: ${correctCount}/${total}
 ❌ Số câu sai: ${wrongCount}
@@ -1277,10 +1266,8 @@
 📉 Tỷ lệ sai: ${wrongPercent}%
 ⏱ Thời gian: ${minutes} phút ${seconds} giây
 🎖 Xếp hạng: ${emoji} ${rank}
-
 🔥 Bạn có thể làm tốt hơn không? Thử ngay!
 `;
-
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard
             .writeText(text.trim())
